@@ -1,0 +1,65 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    height: 100vh;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+input {
+    width: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    outline: none;
+}
+
+.logo {
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+#info {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.loader {
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .error {
+    margin: 0 auto;
+    margin-top: 50px;
+    color: red;
+    font-size: 24px;
+    font-family: sans-serif;
+  }
