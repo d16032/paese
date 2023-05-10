@@ -17,33 +17,29 @@ loader.style.display = 'none';
 errorMsg.style.display = 'none';
 
 async function getData() {
-
     try {
         infoBlock.style.display = 'none';
         errorMsg.style.display = 'none';
-        const inputValue = submit.value; //INPUT VALUE
+        const inputValue = submit.value; // INPUT VALUE
         loader.style.display = 'block';        
-        const url = `https://restcountries.com/v3.1/name/${inputValue}`; //API 
+        const url = `/country/${inputValue}`; // API endpoint
         const resp = await fetch(url);
         const data = await resp.json();
-        country.textContent = data[0]['name']['common']; //Country NAME
+        country.textContent = data[0]['name']['common']; // Country NAME
         country.textContent += " " + data[0]['flag']; // ADD A FLAG
-        altname.textContent = data[0]['altSpellings'][1]; //ALTERNATIVE NAME
-        capital.textContent = data[0]['capital']; //CAPITAL
-        continent.textContent = data[0]['continents'][0]; //CAPITAL
-        area.textContent = data[0]['area'].toLocaleString('us-US'); //AREA
-        currency.textContent = Object.values(data[0].currencies)[0].name; //CURRENCY
-        currency.textContent += " " + Object.values(data[0].currencies)[0].symbol; //ADD SYMBOL
-
-        population.textContent = data[0]['population'].toLocaleString('us-US'); //POPULATION
-        language.textContent = Object.values(data[0].languages)[0]; //LANGUGAE
+        altname.textContent = data[0]['altSpellings'][1]; // ALTERNATIVE NAME
+        capital.textContent = data[0]['capital']; // CAPITAL
+        continent.textContent = data[0]['continents'][0]; // CAPITAL
+        area.textContent = data[0]['area'].toLocaleString('us-US'); // AREA
+        currency.textContent = Object.values(data[0].currencies)[0].name; // CURRENCY
+        currency.textContent += " " + Object.values(data[0].currencies)[0].symbol; // ADD SYMBOL
+        population.textContent = data[0]['population'].toLocaleString('us-US'); // POPULATION
+        language.textContent = Object.values(data[0].languages)[0]; // LANGUGAE
         infoBlock.style.display = 'block';
         loader.style.display = 'none';        
-
-        console.log(data[0]);
-        console.log(data[0]['name']['common']);
-    }
-    catch(error){
+        //console.log(data[0]);
+        //console.log(data[0]['name']['common']);
+    } catch (error) {
         errorMsg.style.display = 'block';
         errorMsg.textContent = 'Ошибка, введите заново';
         loader.style.display = 'none';        
@@ -54,5 +50,5 @@ submit.addEventListener('keypress', (e)=>{
     if (e.key === 'Enter') {
         getData();
         submit.value = '';
-      }
+    }
 });
